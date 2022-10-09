@@ -1,7 +1,6 @@
 package br.com.rodolfo.course.entities;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +25,6 @@ public class User implements Serializable {
 	}
 
 	public User(long id, String name, String email, String phone, String password) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -76,7 +74,10 @@ public class User implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
 	}
 
 	@Override
@@ -88,7 +89,12 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return id == other.id;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 
+	
+
+	
 }
