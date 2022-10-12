@@ -13,7 +13,7 @@ import br.com.rodolfo.course.entities.Category;
 import br.com.rodolfo.course.services.CategoryService;
 
 @RestController
-@RequestMapping(value = "/category")
+@RequestMapping(value = "/categories")
 public class CategoryResource {
 
 	@Autowired
